@@ -1,0 +1,19 @@
+{
+  "name": "vue-source-code",
+  "version": "1.0.0",
+  "description": "use vue source code start a project",
+  "main": "index.js",
+  "scripts": {
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jianguo-h/vue-source-code.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jianguo-h/vue-source-code/issues"
+  },
+  "homepage": "https://github.com/jianguo-h/vue-source-code#readme"
+}
