@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 const vueSrcPath = path.resolve(__dirname, '../vue-dev/src');
 module.exports = {
@@ -46,6 +47,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.json', '.vue'],
     alias: {
+      vue: path.resolve(vueSrcPath, 'platforms/web/entry-runtime-with-compiler.js'),
       core: path.resolve(vueSrcPath, 'core'),
       compiler: path.resolve(vueSrcPath, 'compiler'),
       shared: path.resolve(vueSrcPath, 'shared'),
@@ -57,6 +59,7 @@ module.exports = {
     }
   },
   plugins: [
+    new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
       template: './app/index.html',
       filename: 'index.html',

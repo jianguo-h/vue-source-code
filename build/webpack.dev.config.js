@@ -8,6 +8,15 @@ const webpackDevConfig = webpackMerge(webpackBaseConfig, {
   output: {
     publicPath: '/'
   },
+  module: {
+    rules: [
+      {
+        test: /\.vue$/,
+        use: ['vue-loader'],
+        exclude: /node_modules/
+      }
+    ]
+  },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
   ]
