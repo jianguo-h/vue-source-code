@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const vueSrcPath = path.resolve(__dirname, '../vue-dev/src');
 module.exports = {
   entry: {
     app: './app/index.js'
@@ -45,14 +46,14 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.json', '.vue'],
     alias: {
-      core: path.resolve(__dirname, '../vue-dev/src/core'),
-      compiler: path.resolve(__dirname, '../vue-dev/src/compiler'),
-      shared: path.resolve(__dirname, '../vue-dev/src/shared'),
-      web: path.resolve(__dirname, '../vue-dev/src/platforms/web'),
-      weex: path.resolve(__dirname, '../vue-dev/src/platforms/weex'),
-      server: path.resolve(__dirname, '../vue-dev/src/server'),
-      entries: path.resolve(__dirname, '../vue-dev/src/entries'),
-      sfc: path.resolve(__dirname, '../vue-dev/src/sfc'),
+      core: path.resolve(vueSrcPath, 'core'),
+      compiler: path.resolve(vueSrcPath, 'compiler'),
+      shared: path.resolve(vueSrcPath, 'shared'),
+      web: path.resolve(vueSrcPath, 'platforms/web'),
+      weex: path.resolve(vueSrcPath, 'platforms/weex'),
+      server: path.resolve(vueSrcPath, 'server'),
+      entries: path.resolve(vueSrcPath, 'entries'),
+      sfc: path.resolve(vueSrcPath, 'sfc'),
     }
   },
   plugins: [

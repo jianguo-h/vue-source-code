@@ -1,11 +1,8 @@
+// 通过vue-dev目录下scripts/config.js里的配置得知
+import Vue from '../vue-dev/src/platforms/web/entry-runtime.js';
+
 if(module.hot) {
   module.hot.accept();
 }
 
-/* new Promise(() => {
-  document.write('>>>>>>>>> test');
-}); */
-
-const a: number = 1;
-
-console.log('>>> a', a);
+console.log('>>> Vue', Vue);
