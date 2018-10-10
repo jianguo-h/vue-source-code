@@ -11,11 +11,11 @@ module.exports = {
   },
   module: {
     rules: [
-      /* {
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         use: ['babel-loader']
-      }, */
+      },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
         use: [

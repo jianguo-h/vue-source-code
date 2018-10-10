@@ -2,4 +2,6 @@ if(module.hot) {
   module.hot.accept();
 }
 
-document.write('>>>>>>>>> test');
+new Promise(() => {
+  document.write('>>>>>>>>> test');
+});
