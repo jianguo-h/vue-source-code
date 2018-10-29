@@ -43,6 +43,7 @@ export class Observer {
     this.value = value
     this.dep = new Dep()
     this.vmCount = 0
+    // def() 位于util/lang.js中, 下面这句的作用: value.__ob__ = this;
     def(value, '__ob__', this)
     if (Array.isArray(value)) {
       const augment = hasProto
@@ -107,6 +108,7 @@ function copyAugment (target: Object, src: Object, keys: Array<string>) {
  * or the existing observer if the value already has one.
  */
 export function observe (value: any, asRootData: ?boolean): Observer | void {
+  // isObject() 位于shared/util.js下
   if (!isObject(value) || value instanceof VNode) {
     return
   }
@@ -141,6 +143,16 @@ export function defineReactive (
   const dep = new Dep()
 
   const property = Object.getOwnPropertyDescriptor(obj, key)
+  /*
+    正常情况下, property是如下, 当然也可能是 undefined
+    刚开始初始化时拿到的值:               往后每次set时拿到的值
+    {                                   {
+      enumerable: true,                   enumerable: true, 
+      configurable: true,   =>            configurable: true,
+      writable: true,                     get: function reactiveGetter() { ... },
+      value: val                          set: function reactiveSetter() { ... }
+    }                                   }
+  */
   if (property && property.configurable === false) {
     return
   }

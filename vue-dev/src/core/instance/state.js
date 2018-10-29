@@ -114,6 +114,7 @@ function initData (vm: Component) {
   data = vm._data = typeof data === 'function'
     ? getData(data, vm)
     : data || {}
+  // isPlainObject() 位于 shared/util 下
   if (!isPlainObject(data)) {
     data = {}
     process.env.NODE_ENV !== 'production' && warn(
@@ -144,6 +145,7 @@ function initData (vm: Component) {
         vm
       )
     } else if (!isReserved(key)) {
+      // 将数据代理到Vue实例上, 以便通过this访问
       proxy(vm, `_data`, key)
     }
   }
