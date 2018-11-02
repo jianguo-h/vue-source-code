@@ -170,7 +170,9 @@ export function defineReactive (
     configurable: true,
     get: function reactiveGetter () {
       const value = getter ? getter.call(obj) : val
+      // 只有dom中有引用 data() {} 中的数据时，下方判断才会执行
       if (Dep.target) {
+        // 相当于 watcher.addDep(dep);
         dep.depend()
         if (childOb) {
           childOb.dep.depend()
@@ -197,6 +199,7 @@ export function defineReactive (
         val = newVal
       }
       childOb = !shallow && observe(newVal)
+      // 相当于 watcher.update()
       dep.notify()
     }
   })
